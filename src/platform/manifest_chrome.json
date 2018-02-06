@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Hodl",
+  "version": "1.0.1",
+  "description": "Follow the guiding principles of hodl by any means necessary.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+ "permissions": [
+    "<all_urls>" ,  
+    "tabs",
+    "activeTab",
+    "storage"
+  ],
+   "browser_action": {
+    "default_icon": "icons/icon-48.png",
+    "default_title": "Hodl",
+    "default_popup": "popup/options.html"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  }
+}

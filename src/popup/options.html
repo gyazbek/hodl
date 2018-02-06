@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="options.css"/>
+</head>
+<body>
+  <div id="titlePanel">
+    <h4 class="title">Hodl Settings</h4>
+  </div>
+  <div class="container">
+    
+    <div id="leftPanel">
+      <div class="active panelLink" data-panel-target="generalOptions">General</div>
+      <div class="panelLink" data-panel-target="customizeOptions">Customize</div>
+      <div class="panelLink" data-panel-target="localeOptions">Locale</div>
+    </div>
+    <div id="rightPanel"> 
+      <div id="generalOptions" class="panel">
+        <div class="inputContainer">
+          <label class="switch">
+            <input id="options_enabled" type="checkbox">
+            <span class="switchSlider"></span>
+          </label>
+          <label for="options_enabled">Enabled</label>
+        </div>
+        <hr>
+        <div class="inputContainer">
+          <label for="options_matching_urls">Matching Websites</label>
+          <textarea id="options_matching_urls"></textarea>
+        </div>
+        <hr>
+        <div id="options_reset" class="button reset">Reset Settings</div>
+        <div id="toggle_donate" class="button donate">Buy me a coffee</div>
+        <div id="donate" style="display:none;">
+          <div>
+            <button id="donate_eth" class="donate_button" data-donation-type="eth"> <img src="img/icon_ethereum.png" width="50" height="50"  /></button>
+            <button id="donate_btc" class="donate_button" data-donation-type="btc"> <img src="img/icon_bitcoin.png" width="50" height="50"  /></button>
+            <button id="donate_ltc" class="donate_button" data-donation-type="ltc"> <img src="img/icon_litecoin.png" width="50" height="50"  /></button>
+          </div>
+          <div class="donate_address_container" id="donate_eth_container" style="display:none;">
+            <label>ETH Address:</label>
+            <img class="donate_qr" src="img/eth_qr_0x063436EB8D6d4103c373b2594466bCeaC6e71eb0.png">
+            <input class="donate_address_text" type="text" value="0x063436EB8D6d4103c373b2594466bCeaC6e71eb0"  onclick="this.focus();this.select()" readonly="readonly">
+          </div>
+          <div class="donate_address_container" id="donate_btc_container" style="display:none;">
+            <label>BTC Address:</label>
+            <img class="donate_qr"  src="img/btc_qr_1NAugrMD7LsWYHU7XhZoJotEkwgcdZWrSQ.png">
+            <input class="donate_address_text"  type="text" value="1NAugrMD7LsWYHU7XhZoJotEkwgcdZWrSQ"  onclick="this.focus();this.select()" readonly="readonly">
+          </div>
+          <div class="donate_address_container" id="donate_ltc_container" style="display:none;">
+            <label>LTC Address:</label>
+            <img class="donate_qr" src="img/ltc_qr_Lerp2WMZU6kDuHe51YGjQXCLLF8k4YQi1H.png">
+            <input class="donate_address_text" type="text" value="Lerp2WMZU6kDuHe51YGjQXCLLF8k4YQi1H"  onclick="this.focus();this.select()" readonly="readonly">
+          </div>
+        </div>
+      </div> <!-- end panel -->
+      <div id="customizeOptions" class="panel hidden"><!-- start panel -->
+        <div class="inputContainer">
+          <label for="options_replacement_word">Replacement Word</label>
+          
+          <input type="text" id="options_replacement_word">
+        </div>
+        <div class="inputContainer">
+          
+          <label class="switch">
+            <input class="toggable_elements" data-hidden-element="options_matching_word_options" type="checkbox" id="options_match_custom_word"> 
+            <span class="switchSlider"></span>
+          </label>
+          <label for="options_match_custom_word">
+            Override matching words</label>
+          </div>
+          <div class="inputContainer" id="options_matching_word_options">
+            <label for="options_matching_words">Separated by comma</label>
+            <div>
+              <input type="text" id="options_matching_words">         
+            </div>
+          </div>
+          <div class="inputContainer">
+            <label class="switch">
+              <input type="checkbox" id="options_activation_on_pageload">
+              <span class="switchSlider"></span>
+            </label>
+            <label for="options_activation_on_pageload">On Pageload</label>
+          </div>
+          <div >
+            <div class="inputContainer">
+              <label class="switch">
+                <input class="toggable_elements" data-hidden-element="options_activation_interval_options" type="checkbox" id="options_activation_on_interval">
+                <span class="switchSlider"></span>
+              </label>
+              <label for="options_activation_on_interval">On Interval</label>
+            </div>
+            <div class="inputContainer" id="options_activation_interval_options">
+              <label for="options_activation_interval_time">Interval</label>
+              <div>
+                <select id="options_activation_interval_time">
+                  <option class="2" value="2">2 seconds</option>
+                  <option class="5" value="5">5 seconds</option>
+                  <option class="15" value="15">15 seconds</option>
+                  <option class="30" value="30">30 seconds</option>
+                  <option class="60" value="60">Every minute</option>
+                  <option class="300" value="300">5 minutes</option>
+                  <option class="600" value="600">10 minutes</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="inputContainer">
+            <label class="switch">
+              <input type="checkbox" id="options_activation_on_change">
+              <span class="switchSlider"></span>
+            </label>
+            <label for="options_activation_on_change">On change</label>
+            
+          </div>
+          <div>
+            <div class="inputContainer">
+              <label class="switch">
+                <input class="toggable_elements" data-hidden-element="options_activation_delay_options" type="checkbox" id="options_activation_delay">
+                <span class="switchSlider"></span>
+              </label>
+              <label for="options_activation_delay">Initial delay</label>
+            </div>
+            <div>
+              <div class="inputContainer" id="options_activation_delay_options">
+                <label for="options_activation_delay_time">Delay Time</label>
+                <select id="options_activation_delay_time">
+                  <option value="1">1 second</option>
+                  <option value="5">5 seconds</option>
+                  <option value="10">10 seconds</option>
+                  <option value="15">15 seconds</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+        </div> <!-- end panel -->
+        <div id="localeOptions" class="panel hidden"><!-- start panel -->
+          <div class="inputContainer">
+            <label for="options_locale">Locale</label>
+            <div>
+              <select id="options_locale">
+                <option value="de">Deutsch</option>
+                <option value="en">English</option>
+                <option value="de">Deutsch</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="id">bahasa Indonesia</option>
+                <option value="it">Italiano</option>
+                <option value="nl">Nederlands</option>
+                <option value="pt">Português</option>
+                <option value="jp">Japanese</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div> <!-- end panel -->        
+    </div>
+    <script src="options.js"></script>
+  </body>
+  </html>

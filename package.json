@@ -1,0 +1,16 @@
+{
+	"name": "Hodl",
+	"version": "1.0.0",
+	"scripts": {
+		"package:copy": "rm -rf ./temp && mkdir ./temp && cp -r ./src/* ./temp",
+		"package:js": "uglifyjs-folder ./temp -e -y -x .js -o ./temp --configFile ./uglify.json",
+		"package:css": "cleancss -o ./temp/popup/options.css ./temp/popup/options.css",
+		"package:catcommon": "cat ./temp/common.js ./temp/content.js > ./temp/content_merged.js && mv ./temp/content_merged.js ./temp/content.js && cat ./temp/common.js ./temp/background.js > ./temp/background_merged.js && mv ./temp/background_merged.js ./temp/background.js && cat ./temp/common.js ./temp/popup/options.js > ./temp/popup/options_merged.js && mv ./temp/popup/options_merged.js ./temp/popup/options.js",
+		"package:chrome": "rm -rf ./dist_chrome && npm run package:copy && cp ./temp/platform/manifest_chrome.json ./temp/manifest.json && rm -r ./temp/platform && npm run package:catcommon && rm ./temp/common.js && npm run package:css && npm run package:js && mv ./temp ./dist_chrome",
+		"package:firefox": "rm -rf ./dist_firefox && npm run package:copy && cp ./temp/platform/manifest_firefox.json ./temp/manifest.json && rm -r ./temp/platform && npm run package:catcommon && rm ./temp/common.js &&  npm run package:css && npm run package:js && mv ./temp ./dist_firefox"
+	},
+	"dependencies": {
+		"uglifyjs-folder": "1.5.0",
+		"clean-css-cli": "4.1.10"
+	}
+}
