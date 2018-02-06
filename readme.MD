@@ -6,6 +6,16 @@ There is an initial list of domains included, but you can remove them by changin
 
 You can also customize the search array as well as the replacement word.
 
+# Download
+The extension can be directly installed for Firefox and Chrome.
+
+Firefox
+https://addons.mozilla.org/en-US/firefox/addon/cryptohodl/
+
+Chrome
+https://chrome.google.com/webstore/detail/hodl/ebaheanlhpmofjcjomhagadpagdnidoj
+
+Or you can load the extension unpacked.
 
 # Permissions
  We only require permissions to access the tabs, local storage for preferences, and urls. There might be some crossover, and I will potentially remove some uneeded permissions in the future.
@@ -22,6 +32,7 @@ $ npm run package:chrome
 $ npm run package:firefox
 ```
 
+Running the scripts will spit out two folders (dist_chrome, dist_firefox) that can be installed unpacked.
 
 ### Development
 Want to help? Please do. This was built in a rush so I expect bugs.
